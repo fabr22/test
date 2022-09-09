@@ -1,10 +1,11 @@
+import Swiper from "swiper";
 import { useSwiper } from "swiper/react";
 import ArrowSlider from "../../../assets/svg/arrowSlider";
 import styles from "./slider.module.scss";
 
 interface SwiperButtonPrev {
   arrowPrev: boolean;
-  onClickPrev: (a: any) => void;
+  onClickPrev: (a: Swiper) => void;
 }
 
 const ArrowPrev = ({ arrowPrev, onClickPrev }: SwiperButtonPrev) => {

@@ -20,6 +20,7 @@ const BonusCard = ({
   ...props
 }: BonusCardProps): JSX.Element => {
   const bonusValueWithCommans = numberWithCommas(bonusValue);
+
   return (
     <div className={styles["wrapper"]} {...props}>
       <div className={styles["header"]}>
@@ -31,7 +32,7 @@ const BonusCard = ({
         <div className={styles["body"]}>
           {exclusive ? (
             <div className={styles["badge-wrapper"]}>
-              <Badge > exclusive </Badge>
+              <Badge> exclusive </Badge>
             </div>
           ) : null}
           <div className={styles["type-of-bonus"]}>
@@ -42,10 +43,10 @@ const BonusCard = ({
           <div className={styles["bonus-value"]}>${bonusValueWithCommans}</div>
           <div className={styles["free-spins"]}>+ 100 Free Spins </div>
           <div className={styles["game"]}>on Cleopatra&rsquo;s Gold</div>
-          <ButtonWithCountry > Play </ButtonWithCountry>
-            <div className={styles['info-icon-wrapper']}>
-              <InfoIcon />
-            </div>
+          <ButtonWithCountry> Play </ButtonWithCountry>
+          <div className={styles["info-icon-wrapper"]}>
+            <InfoIcon />
+          </div>
         </div>
       </div>
     </div>

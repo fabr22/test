@@ -7,7 +7,7 @@ import mockData from "./mockData";
 import BonusCard from "../bonusCard/bonusCard";
 import { useState } from "react";
 
-const BestBonoses = () => {
+const BestBonuses = () => {
   const [isAll, setIsAll] = useState<boolean>(false);
   const initialBonuses = mockData.filter(
     (bonus) => bonus.typeOfBonus === "no deposit"
@@ -15,24 +15,16 @@ const BestBonoses = () => {
   const [filtredBonuses, setFiltredBonuses] = useState(initialBonuses);
   const [activeButton, setActiveButton] = useState("No Deposit");
 
-  const handleWelcomeBonusClick = () => {
-    setActiveButton("Welcome");
-    setFiltredBonuses(
-      mockData.filter((bonus) => bonus.typeOfBonus === "welcome")
-    );
+  const activeButtonType = {
+    welcome: "Welcome",
+    freeSpins: "Free Spins",
+    noDeposit: "No Deposit",
   };
 
-  const handleFreeSpinsBonusClick = () => {
-    setActiveButton("Free Spins");
+  const handleButtonClick = (type: string) => {
+    setActiveButton(type);
     setFiltredBonuses(
-      mockData.filter((bonus) => bonus.typeOfBonus === "free spins")
-    );
-  };
-
-  const handleNoDepositBonusClick = () => {
-    setActiveButton("No Deposit");
-    setFiltredBonuses(
-      mockData.filter((bonus) => bonus.typeOfBonus === "no deposit")
+      mockData.filter((bonus) => bonus.typeOfBonus === type.toLowerCase())
     );
   };
 
@@ -50,7 +42,7 @@ const BestBonoses = () => {
         countFreeSpins={bonus.countFreeSpins}
         typeOfBonus={bonus.typeOfBonus}
         logoSrc={bonus.logoSrc}
-      ></BonusCard>
+      />
     );
   });
 
@@ -69,25 +61,31 @@ const BestBonoses = () => {
 
       <div className={styles["bonusType"]}>
         <Button
-          onClick={handleNoDepositBonusClick}
+          onClick={() => handleButtonClick(activeButtonType.noDeposit)}
           appearence={`${
-            activeButton === "No Deposit" ? "blue-gradient" : "white"
+            activeButton === activeButtonType.noDeposit
+              ? "blue-gradient"
+              : "white"
           }`}
         >
-          No deposit bonus
+          No Deposit Bonus
         </Button>
         <Button
-          onClick={handleWelcomeBonusClick}
+          onClick={() => handleButtonClick(activeButtonType.welcome)}
           appearence={`${
-            activeButton === "Welcome" ? "blue-gradient" : "white"
+            activeButton === activeButtonType.welcome
+              ? "blue-gradient"
+              : "white"
           }`}
         >
           Welcome Bonus
         </Button>
         <Button
-          onClick={handleFreeSpinsBonusClick}
+          onClick={() => handleButtonClick(activeButtonType.freeSpins)}
           appearence={`${
-            activeButton === "Free Spins" ? "blue-gradient" : "white"
+            activeButton === activeButtonType.freeSpins
+              ? "blue-gradient"
+              : "white"
           }`}
         >
           Free Spins Bonus
@@ -107,4 +105,4 @@ const BestBonoses = () => {
   );
 };
 
-export default BestBonoses;
+export default BestBonuses;

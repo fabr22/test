@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { HTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import { HTMLAttributes, DetailedHTMLProps } from "react";
 
 export interface BonusCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>  {
     casinoName: string;

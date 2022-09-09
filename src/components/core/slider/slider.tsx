@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Swiper as SwiperType, Navigation, Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,15 +16,11 @@ import styles from "./slider.module.scss";
 
 import BonusCard from "../../entities/bonusCard/bonusCard";
 
-const Slider = ({bonuses} : SliderProps) => {
+const Slider = ({ bonuses }: SliderProps) => {
   const [arrowPrev, setArrowPrev] = useState(true);
   const [arrowNext, setArrowNext] = useState(false);
 
-  const onClickNext = (swiper: {
-    activeIndex: number;
-    slideNext: () => void;
-    slides: string | any[];
-  }) => {
+  const onClickNext = (swiper: SwiperType) => {
     swiper.slideNext();
 
     if (swiper.activeIndex !== 0) {
@@ -36,11 +32,7 @@ const Slider = ({bonuses} : SliderProps) => {
     }
   };
 
-  const onClickPrev = (swiper: {
-    slidePrev: () => void;
-    activeIndex: number;
-    slides: string | any[];
-  }) => {
+  const onClickPrev = (swiper: SwiperType) => {
     swiper.slidePrev();
     if (swiper.activeIndex !== swiper.slides.length - 5) {
       setArrowNext(false);
@@ -71,7 +63,7 @@ const Slider = ({bonuses} : SliderProps) => {
                 countFreeSpins={bonus.countFreeSpins}
                 typeOfBonus={bonus.typeOfBonus}
                 logoSrc={bonus.logoSrc}
-              ></BonusCard>
+              />
             </SwiperSlide>
           );
         })}
@@ -82,4 +74,3 @@ const Slider = ({bonuses} : SliderProps) => {
   );
 };
 export default Slider;
-
