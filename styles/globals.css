@@ -2,25 +2,23 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-size: 10px;
+  font-family: 'Lato', sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
+:root {
+  --blue-black: #0c2b48;
+  --dark-blue: #12395d;
+  --blue: #2a577e;
+  --pale-blue: #f1fdff;
+  --yellow: #fac515;
+  --dark-yellow: #f9b133;
+  --big-tab-blue: #0460a9;
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+  --blue-black-blue: linear-gradient(to right, var(--blue-black), var(--blue));
+  --pale-blue-white: linear-gradient(to right, var(--pale-blue), white);
+  --yellow-yellow: linear-gradient(to right, var(--dark-yellow), var(--yellow))
 }
